@@ -1,100 +1,129 @@
-# LLM-Powered Resume Evaluator
+# 📄 LLM-Powered Resume Evaluator
 
-## Overview
-The **LLM-Powered Resume Evaluator** is a tool that allows users to evaluate their resume against a given job description using different **Large Language Models (LLMs)**.  
-It provides feedback on how well the resume matches the job description and enables users to view results from multiple models, helping them optimize their resume for better job prospects and analyze how different LLMs generate outputs for the same task.
+## 🚀 Overview
 
-## Features
-✅ **Resume Evaluation** – Get feedback on how well your resume aligns with a job description.  
-✅ **Multi-LLM Support** – View evaluation results from **OpenAI (GPT), Gemini, Claude, LLaMA, DeepSeek, and Mistral**.  
-✅ **Configurable Parameters** – Adjust model settings like `temperature`, `max_tokens`, `top-p`, and `top-k` for fine-tuned responses (in the code).  
-✅ **User-Friendly Interface** – A **Streamlit-based UI** for easy input of resumes and job descriptions.  
+The **LLM-Powered Resume Evaluator** helps you analyze how well your resume matches a given job description using various **Large Language Models (LLMs)**.  
+It delivers AI-driven feedback, lets you compare outputs from multiple models, and supports fine-tuning to improve resume-job alignment.
 
 ---
 
-## Setup & Installation
+## ✨ Features
 
-### Prerequisites  
-Ensure you have **Python 3.8+** installed
+- ✅ **Resume Evaluation** – Intelligent feedback on resume-job alignment  
+- 🔄 **Multi-LLM Support** – Compare outputs from **OpenAI (GPT), Gemini, Claude, LLaMA, DeepSeek, and Mistral**  
+- ⚙️ **Configurable Parameters** – Adjust `temperature`, `max_tokens`, `top_p`, and `top_k` for output customization  
+- 💻 **User-Friendly Interface** – Clean **Streamlit UI** for uploading resumes and entering job descriptions  
 
-### 1. Clone the Repository  
+---
+
+## ⚙️ Setup & Installation
+
+### 📌 Prerequisites
+
+- Python 3.8 or later  
+- API keys for supported LLMs (see below)
+
+---
+
+### 🧱 1. Clone the Repository
+
 ```bash
 git clone https://github.com/Anamay23/Resume-Evaluator.git
 cd llm-resume-evaluator
 ```
 
-### 2. Create a Virtual Environment (Optional but Recommended)  
+---
+
+### 🛡️ 2. Create Virtual Environment (Recommended)
+
 ```bash
 python -m venv venv
-# On macOS/Linux
-source venv/bin/activate  
-# On Windows
-venv\Scripts\activate  
+# Activate environment
+# On macOS/Linux:
+source venv/bin/activate
+# On Windows:
+venv\Scripts\activate
 ```
 
-### 3. Install Dependencies  
+---
+
+### 📦 3. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure API Keys and set up .env file 
-To use this tool, you need API keys for different LLMs. Here’s how you can generate them and set them up:
+---
 
-🔑 Generate API Keys for OpenAI GPT, Gemini, and Claude
-  Visit the API platform for each model:
-    OpenAI (https://platform.openai.com/docs/overview)
-    Google AI Studio (Gemini) (https://ai.google.dev/)
-    Anthropic (Claude) (https://www.anthropic.com/)
-  Sign in or create an account
-  Navigate to the API Keys section and generate a new key
-  Copy and save the key securely
+### 🔐 4. Configure API Keys
 
-🔑 Generate API Key for DeepSeek, LLaMA, and Mistral (via OpenRouter)
-  Go to OpenRouter and log in/sign up (https://openrouter.ai/)
-  Generate an API key from the API Keys section
-  This single key works for DeepSeek, LLaMA, and Mistral
-  
-📝 Add Keys to the .env File
-In your project directory, create a .env file (if it doesn’t exist) and add the keys like this:
-```ini
+#### Step 1: Get API Keys
+
+- **OpenAI (GPT):** https://platform.openai.com/docs/overview  
+- **Gemini (Google):** https://ai.google.dev/  
+- **Claude (Anthropic):** https://www.anthropic.com/  
+- **DeepSeek, LLaMA, Mistral (via OpenRouter):** https://openrouter.ai/
+
+#### Step 2: Create `.env` File
+
+In your project root, create a `.env` file and paste your keys like:
+
+```env
 OPENAI_API_KEY=your_openai_api_key_here
 GEMINI_API_KEY=your_gemini_api_key_here
 CLAUDE_API_KEY=your_claude_api_key_here
-OPENROUTER_API_KEY=your_openrouter_api_key_here  # Used for DeepSeek, LLaMA, and Mistral
+OPENROUTER_API_KEY=your_openrouter_api_key_here
 ```
 
+> 📝 `OPENROUTER_API_KEY` works for **DeepSeek**, **LLaMA**, and **Mistral**.
 
-### 5. Run the Application  
+---
+
+### ▶️ 5. Run the App
+
 ```bash
 streamlit run app.py
 ```
 
----
-
-## Usage
-1. **Enter the job description** for which you want feedback.  
-2. **Upload your resume**.  
-3. **Select the LLMs** you want to use for evaluation.  
-4. **View feedback** from different LLMs.  
-5. **Optimize your resume** according to the generated feedback.
+Open your browser at [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## Configuration  
-Modify `config.py` to update default LLM settings:  
+## 🧠 Usage
 
-- **`temperature`** – Controls randomness in responses (higher = more creative, lower = more deterministic).  
-- **`max_tokens`** – Sets the maximum response length.  
-- **`top_p` / `top_k`** – Sampling methods for response diversity.  
-
----
-
-## Roadmap & Future Enhancements  
-🚀 **Add a feature** to compare results of different LLMs in a **table on the UI**.  
-🚀 **Allow users** to modify **model parameters** (like `temperature` and `max_tokens`) directly from the UI.  
-🚀 **Add a feature** that generates an **email to send to the recruitment team** based on your resume and job description.  
+1. Paste or upload the **job description**.  
+2. Upload your **resume** (PDF or plain text).  
+3. Select one or more **LLMs** for evaluation.  
+4. View and compare **AI-generated feedback**.  
+5. **Improve** your resume using insights provided.
 
 ---
 
-## Contributing  
-Feel free to **fork the repo** and submit a **pull request**! Any contributions to improve the tool are welcome.  
+## 🧩 Configuration
+
+Adjust defaults in `config.py`:
+
+- `temperature`: creativity vs precision  
+- `max_tokens`: response length  
+- `top_p`, `top_k`: output diversity controls  
+
+---
+
+## 🗺️ Roadmap & Future Plans
+
+- 🚀 Compare LLM results in a **side-by-side UI table**  
+- 🛠️ Let users change model parameters **within the UI**  
+- 📧 Auto-generate a **job application email** from resume + JD  
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions!  
+Feel free to **fork** this repo, improve it, and **submit a pull request**.
+
+---
+
+## 📬 Contact
+
+For queries or suggestions, please contact the project owner via GitHub: [@Anamay23](https://github.com/Anamay23)
